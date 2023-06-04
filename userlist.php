@@ -1,7 +1,6 @@
 <?php
-
-require_once 'inc/functions.php';
-?>
+  require_once 'inc/functions.php';
+?> 
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -26,7 +25,7 @@ require_once 'inc/functions.php';
 	display: block;
 	font-size: 1.25em;
 	padding-top: 3px;
-	margin-left: 60px;
+	/*margin-left: 60px;*/
 }
 .user-list tbody td .user-subhead {
 	font-size: 0.875em;
@@ -193,10 +192,7 @@ require_once 'inc/functions.php';
   <a href="index.php" class="active">خانه</a>
  
   <a href="userlist.php">لیست کاربران</a>
-  <a href="#about">خروج</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
+  <a href="#">خروج</a>
 
 </div>
 
@@ -217,86 +213,36 @@ require_once 'inc/functions.php';
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>
-<?php $lists=getUserlist();
-foreach($lists as $list){
 
 
+<?php 
+	$lists=getUserlist();
 
+	foreach($lists as $list){
+		echo('<tr>');
+		echo("<td><a href='#' class='user-link'>".$list['fullname']."</a></td>");
+		echo("<td><a href='#' class='user-link'>".$list['created_at']."</a></td>");
+		echo("<td><a href='#' class='__cf_email__' data-cfemail='89e4e0e5e8c9e2fce7e0faa7eae6e4'>".$list['email']."</a></td>");
+		echo("<td style='width: 20%;'><a href='#' class='table-link'><span class='fa-stack'>
+			<i class='fa fa-square fa-stack-2x'></i><i class='fa fa-pencil fa-stack-1x fa-inverse'></i></span></a>
+			<a href='#' class='table-link danger'><span class='fa-stack'><i class='fa fa-square fa-stack-2x'></i>
+			<i class='fa fa-trash-o fa-stack-1x fa-inverse'></i></span></a></td>");
+		echo('</tr>');
+	}
+		
 ?>
-<a href="#" class="user-link"><?php echo $list['Fullname']; ?> </a>
-<?php } ?>
-
-</td>
-<td>
-<?php $lists=getUserlist();
-foreach($lists as $list){
-
-
-
-?>
-<a href="#" class="user-link"><?php echo $list['created_at']; ?> </a>
-<?php } ?></td>
-<td class="text-center">
-
-</td>
-<td>
-	
-<?php $lists=getUserlist();
-foreach($lists as $list){
-
-
-
-?>
-<a href="#"><span class="__cf_email__" data-cfemail="89e4e0e5e8c9e2fce7e0faa7eae6e4"><?php echo $list['email'];?></br> </span></a>
-<?php } ?>
-</td>
-<td style="width: 20%;">
-<a href="#" class="table-link">
-<span class="fa-stack">
-<i class="fa fa-square fa-stack-2x"></i>
-<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-<a href="#" class="table-link">
-<span class="fa-stack">
-<i class="fa fa-square fa-stack-2x"></i>
-<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-<a href="#" class="table-link danger">
-<span class="fa-stack">
-<i class="fa fa-square fa-stack-2x"></i>
-<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</td>
-</tr>
-<tr>
-
-
 
 
 
 </div>
-<ul class="pagination pull-right">
-<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-<li><a href="#">1</a></li>
-<li><a href="#">2</a></li>
-<li><a href="#">3</a></li>
-<li><a href="#">4</a></li>
-<li><a href="#">5</a></li>
-<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-</ul>
+<h1>لیست کاربران</h1>
+
 </div>
 </div>
 </div>
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-</script>
+
 </body>
 </html>

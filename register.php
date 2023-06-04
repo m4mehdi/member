@@ -13,7 +13,7 @@ Registration Page
 <br>
 <form method="post" action="inc/functions.php">
 
-<label> Fullname</label>       
+<label> fullname</label>       
 <input type="text" name="fullname" size="15"/> <br> <br>
 <label> username: </label>   
 <input type="text" name="username" size="15"/> <br> <br>

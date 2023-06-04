@@ -1,11 +1,9 @@
 
 <?php
-require_once 'inc/functions.php'; checklogin();
-
-
-
-
-
+  session_start();
+  echo($_SESSION['loggedin']);
+  if(!isset($_SESSION['loggedin']))
+    header("location: ../login.php");
 ?>
 
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -27,11 +25,16 @@ require_once 'inc/functions.php'; checklogin();
   <a href="index.php" class="active">خانه</a>
  
   <a href="userlist.php">لیست کاربران</a>
-  <a href="#about">خروج</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
+  <a href="#" onclick="myFunction()">خروج</a>
 
 </div>
 
-<h1>آقا یا خانم .... خوش آمدید</h1>
+<h1><?php echo(' سلام  '.$_SESSION['fullname'] . ' خوش آمدید ');?></h1>
+<script>
+  function myFunction() {
+    <?php 
+    session_destroy();    
+    ?>
+    location.reload();
+  }
+</script>
